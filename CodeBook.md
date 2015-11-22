@@ -4,11 +4,12 @@ Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 I. Raw data
 -----------
 
-a. Source 
+  a. Source 
 
-[Information](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) on the smartphone data set.
 
-[Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) the dataset used for the Coursera course project. 
+      [Information](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) on the smartphone data set.
+
+      [Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) the dataset used for the Coursera course project. 
    
    
 b. Experiemntal design 
@@ -17,8 +18,8 @@ b. Experiemntal design
            
    The data were processed using various filters including FFT where the data was represented in both the time and frequency domain. The investigators of this study then performed statistical analysis on the data (mean, standard deviation, etc.). The processed data is as follows:
 tBodyAcc-XYZ,  
-tGravityAcc-XYZ,  
-tBodyAccJerk-XYZ,  
+tGravityAcc-XYZ, 
+tBodyAccJerk-XYZ, 
 tBodyGyro-XYZ, 
 tBodyGyroJerk-XYZ, 
 tBodyAccMag, 
@@ -38,7 +39,6 @@ fBodyGyroJerkMag
    Additional analysis was carried out on the above variables to estimate the following (only those important for this project are listed below, see "features_info.txt" in the downloaded data set for information on the other variables):
 - mean (mean)
 - standard deviation (std)
-
 
    The goal of this course project was to take the raw data files collected by the investigators and create a tidy data set (for each individual across each activity state) that lists the average of the mean and std values listed above in a trainging data set and a test data set (66 columns total).
 
