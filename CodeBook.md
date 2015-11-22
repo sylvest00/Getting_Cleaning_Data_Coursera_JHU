@@ -1,5 +1,5 @@
 ##Code Book for Getting & Cleaning Data Course Project
-<<<<<<< HEAD
+
 
 Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 
@@ -15,5 +15,4 @@ Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 
 1. Processed Data
 -----------------
-=======
->>>>>>> 8097aaa25aa5809664f494a35e37e69d524d3c84
+
