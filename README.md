@@ -1,19 +1,22 @@
 ##Tidying Parts of the "Human Activity Recognition Using Smartphones Dataset"
 ###Coursera Getting & Cleaning Data Course Project
+####Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 
-Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 
+I. Data source
+--------------
 [Information](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) on the smartphone data set.
 
 [Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) the dataset used for the Coursera course project.
 
 
-0. Goal of the script
----------------------
+II. Goal of the script
+----------------------
 The goal of this project was to take a published data set and tidy it based upon specifications listed in the project page. The final result is a "tidy" data set (based upon the principles of "tidy data") that contains the average across all participants of the study and the activities that they performed for columns that contained the mean or the standard deviation of a measure.
 
-I. File list
-------------
+
+III. File list
+--------------
 The following files are required for the tidy data set to be created:  
 run_analysis.R..............Loads data sets and manipulates them to form a tidy data set.  
 subject.txt.................Numeric ID's of the study's participants.  
@@ -33,8 +36,8 @@ Additional notes:
 - There is no user input required.
 - The above files must be located within the same directory.
 
-2. Details of the script
-------------------------
+IV. Details of the script
+-------------------------
 The script first loads the above data (.txt) and constructs a data frame (data_df) that combines the training and test data. The first column of data_df is "subject", the second is "activity", and the remaining 561 are the labels in "features.txt".
 
 Upon inspection, it is noted that there are ome column names (43) that are duplicated (featNames_unique != length(featNames)). These columns also contain different values, meaning they are not columns of duplicated values. Rather, they different columns with the same name. For good measure, these columns were not discarded prior to the final tidying step. Functions were used (rbind instead of bind_rows, etc.) to ensure columns with duplicated names were not automatically removed. After removing special characters (-,(,),.) from column names and replacing them with an underscore, duplicated names were given suffixes in order to differentiate between them. For example, fBodyGyro-bandsEnergy()-1,8 was changed to fBodyGyro_bandsEnergy_1_8. Since fBodyGyro_bandsEnergy_1_8 appears 3 times, each occurance was indexed such that:
