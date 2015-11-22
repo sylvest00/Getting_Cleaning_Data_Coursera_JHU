@@ -1,6 +1,8 @@
+#README.MD
+
 ##Tidying Parts of the "Human Activity Recognition Using Smartphones Dataset"
 ###Coursera Getting & Cleaning Data Course Project
-####Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
+###Location: sylvest00/Getting_Cleaning_Data_Coursera_JHU.git
 
 
 I. Data source
