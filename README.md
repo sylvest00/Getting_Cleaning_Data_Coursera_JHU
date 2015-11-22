@@ -46,7 +46,9 @@ Upon inspection, it is noted that there are ome column names (43) that are dupli
 > data_df$fBodyGyro_bandsEnergy_1_8_3[1:5]
 [1] -0.9999554 -0.9999089 -0.9998701 -0.9998773 -0.9998711
 
-Next, all columns that end in "mean", "std", "mean_XYZ", or "std_XYZ", were extracted and bound to a data frame, MS_df_fin, that contained the subject ID and activity ID vectors. The numeric activity ID's were changed to their corresponding character labels.
+Please note in the above code block that the first 5 values in each of these 3 columns (previously with the same name) are in fact different.
+
+Next, all columns that end in "mean", "std", "mean_XYZ", or "std_XYZ", were extracted and bound to a data frame, MS_df_fin, that contained the subject ID and activity ID vectors. The numeric activity ID's were changed to their corresponding character labels. Also, repetative terms in the column names were removed.
 
 Then, MS_df_fin was grouped by subject ID and activity ID using the group_by function.
 
