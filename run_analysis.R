@@ -9,7 +9,7 @@
 #               Contains numeric and string ID's for the activities performed
 #               during recording
 #           features.txt
-#               A list of the names of the data collected.
+#               A list of the variables estimated by the investigators.
 #           subject.txt
 #               A list of the ID numbers of participants.
 #           X_train.txt, X_test.txt
@@ -17,15 +17,12 @@
 #               some statistical measures of participants. The column names are
 #               contained in features.txt.
 #           y_train.txt, y_test.txt
-#               Contains the numeric ID of the activity performed for each participant.
-#
-#
+#               Contains the numeric ID of the activity performed by each participant.
 #
 #     After loading the above files, they are combined and manipulated in order
 #     to create a final data set that includes the average mean and std values
-#     for each participant across each type of activity. This tidy data set is
-#     then saved in the current directory as "tidy_data.txt".
-#
+#     for each participant across multiple trials performed for each activity state.
+#     This tidy data set is then saved in the current directory as "tidy_data.txt".
 #
 #     The following packages are required: dplyr and Hmisc.
 ###########################################################################################
@@ -34,7 +31,7 @@
 library(dplyr)
 library(Hmisc)
 
-#Read in feature and activity labels and store as featNames and activityNames,respectively.
+#Read in feature and activity labels and store as featNames and activityNames, respectively.
 featNames     <- read.table("features.txt",sep=" ")
 activityNames <- read.table("activity_labels.txt")
 
@@ -56,14 +53,14 @@ test_df   <- cbind(test_df,temp_df)
 
 
 #Combine the training & test data frames.There are columns of the data frame with duplicate
-#names but different values (see code book for an example). For good tidying practice,
+#names but different values (see README for an example). For good tidying practice,
 #the columns with duplicate names were not removed. bind_rows() removes columns with
 #duplicated names, so rbind() was used instead.
 
 data_df <- rbind(train_df,test_df)
 
 
-#Remove characters and replace with either a space or an underscore
+#Remove characters and replace with either a space or an underscore for better indexing
 colnames(data_df) <- gsub(",","_",names(data_df))
 colnames(data_df) <- gsub("-","_",names(data_df))
 colnames(data_df) <- gsub("\\()","",names(data_df))
@@ -72,7 +69,6 @@ data_df_names <- names(data_df)
 
 #Find duplicated column names and add a subscript to differentiate between them.
 featNames_unique <- unique(data_df_names)
-
 count = 1;
 for (i in 1:length(featNames_unique)){
   idx <- which(featNames_unique[i] == data_df_names)
@@ -82,22 +78,21 @@ for (i in 1:length(featNames_unique)){
     count = count + 1;
   }
 }
-
 data_df_names <- names(data_df)
 
 
 #Extract mean and std values to create a new data frame, MS_df_fin
-MS_df <- select(data_df,matches("mean|std"))
-mean_df <- select(data_df,ends_with("mean"))
+MS_df     <- select(data_df,matches("mean|std"))
+mean_df   <- select(data_df,ends_with("mean"))
 mean_df_x <- select(data_df,ends_with("mean_X"))
 mean_df_y <- select(data_df,ends_with("mean_y"))
 mean_df_z <- select(data_df,ends_with("mean_z"))
-mean_df <- cbind(mean_df,mean_df_x,mean_df_y,mean_df_z)
-std_df <- select(data_df,ends_with("std"))
-std_df_x <- select(data_df,ends_with("std_x"))
-std_df_y <- select(data_df,ends_with("std_y"))
-std_df_z <- select(data_df,ends_with("std_z"))
-std_df <- cbind(std_df,std_df_x,std_df_y,std_df_z)
+mean_df   <- cbind(mean_df,mean_df_x,mean_df_y,mean_df_z)
+std_df    <- select(data_df,ends_with("std"))
+std_df_x  <- select(data_df,ends_with("std_x"))
+std_df_y  <- select(data_df,ends_with("std_y"))
+std_df_z  <- select(data_df,ends_with("std_z"))
+std_df    <- cbind(std_df,std_df_x,std_df_y,std_df_z)
 MS_df_fin <- data.frame(subject = data_df$subject, activity = data_df$activity)
 MS_df_fin <- cbind(MS_df_fin,mean_df,std_df)
 
@@ -108,7 +103,7 @@ for (i in 1:length(MS_df_fin$activity)){
 }
 
 
-#The column names are descriptive enough and theya re described in the code book,
+#The column names are descriptive enough and they are described in the code book,
 #so minimal changes were made. The extra "Body" from a few column names was removed.
 MS_df_fin <- rename(MS_df_fin,
                     fBodyAccJerkMag_mean = fBodyBodyAccJerkMag_mean,
@@ -120,6 +115,7 @@ MS_df_fin <- rename(MS_df_fin,
 
 
 #Take the average of each column across every subject and activity pairing.
+#The column names are unchanged; however, the values are now of an average.
 tidy_df <- MS_df_fin
 tidy_df <- tidy_df %>% group_by(subject,activity) %>% summarize_each(funs(mean(.,na.rm=TRUE)))
 
