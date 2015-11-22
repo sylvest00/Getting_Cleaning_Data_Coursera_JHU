@@ -28,3 +28,18 @@ I. File list
 |       y_test.txt                  Numeric ID's of the activities performed during testing across all trials for all
 |                                       participants.  
 |       X_test.txt                  Test data across all trials performed for each activity and each participant.  
+
+
+
+
+
+
+
+| *Yuku haru ya*
+| *tori naki uo no*
+| *me wa namida*
+| -- **Matsuo Basho**, The Narrow Road to Oku (*Oku no Hosomichi*),
+ Tokyo, 1996, p. 23 (Translation: Donald Keene)
+| Spring is passing by!
+| Birds are weeping and the eyes
+| of fish fill with tears.
