@@ -45,7 +45,7 @@ The goal of this course project was to take the raw data files collected by the 
 
 II. Processed Data
 ------------------
-The average of the experimental variables that approximate the mean and the std listed above was calulated using the "summarize_each" function. The names of the variables are the same as in the experimental/ raw data files; however, what is represented in each row of the tidy data set (tidy_df) is an *average value*. The data is organized such that each row corresponds to the average values of each study participant for each activity state. There are 30 participants and 6 activity states each, which produces a data frame that consists of 180 rows.
+The average of the experimental variables that approximate the mean and the std listed above was calulated using the "summarize_each" function. The names of the variables are the same as in the experimental/ raw data files; however, what is represented in each row of the tidy data set (tidy_df) is an **average value**. The data is organized such that each row corresponds to the average values of each study participant for each activity state. There are 30 participants and 6 activity states each, which produces a data frame that consists of 180 rows.
 
 The names of the columns are as follows:
 - Column 1: Subject (ID's of study participants 1-30)
