@@ -6,13 +6,13 @@ I. Raw data
 
 a. Source 
 
-
-    [Information](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) on the smartphone data set. [Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) the dataset used for the Coursera course project. 
+[Information](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) on the smartphone data set. [Download](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) the dataset used for the Coursera course project. 
    
    
-b. Experiemntal design
+b. Experiemntal design 
 
-Data were collected on 30 individuals who completed multiple trials of 6 activities that include walking along a horizontal plane, walking upstairs, walking downstairs, sitting, standing, and laying. During each activity state, an individual's 3-axial angular velocity and acceleration were recorded via the accelerometer and gyroscope of a Samsung Galaxy S II that was affixed to the waist.
+
+    Data were collected on 30 individuals who completed multiple trials of 6 activities that include walking along a horizontal plane, walking upstairs, walking downstairs, sitting, standing, and laying. During each activity state, an individual's 3-axial angular velocity and acceleration were recorded via the accelerometer and gyroscope of a Samsung Galaxy S II that was affixed to the waist. 
 
 The data were processed using various filters including FFT where the data was represented in both the time and frequency domain. The investigators of this study then performed statistical analysis on the data (mean, standard deviation, etc.). The processed data is as follows:
 tBodyAcc-XYZ, 
